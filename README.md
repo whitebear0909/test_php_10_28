@@ -19,6 +19,7 @@
 You're given a sorted index array that contains no keys. The array contains only integers, and your task is to identify whether or not the integer you're looking for is in the array. Come up with a function that searches for the integer and returns true or false based on whether the integer is present. Describe how you arrived at your solution.
 
 Answer:
+```
   <?php
       function searchInArray($arrayList, $findInt){
           in_array($findInt, $arrayList, true);
@@ -28,6 +29,7 @@ Answer:
 
       var_dump(searchInArray($givenArray, 11));
   ?>
+ ```
 ## Question 3
     During a large data migration, you get the following error: Fatal error: Allowed memory size of 134217728 bytes exhausted (tried to allocate 54 bytes). You've traced the
      problem to the following snippet of code:
