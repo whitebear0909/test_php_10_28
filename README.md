@@ -58,4 +58,164 @@ Answer:
   Note: This question CAN be solved using a regular expression, but one is not REQUIRED as a solution. Focus instead on cleanliness and effectiveness of the code, and take into account phone numbers that may not pass a sanity check.
 
 Answer:
+  ```
+  <?php
+    function getFilteredPNumber($pStr){
+        $count = strlen($pStr);
+        $filteredNumber = '';
+
+        for ($i = 0; $i < $count; $i++) {
+            $specialChar = substr($pStr, $i, 1);
+            if (is_numeric($specialChar)) {
+                $filteredNumber .= $specialChar;
+            }
+        }
+
+        return $filteredNumber;
+    }
+
+    function reformatPNumber($pNum, $delimiter){
+        $firstPart = substr($pNum, 0, 3);
+        $secondPart = substr($pNum,3, 3);
+        $thirdPart = substr($pNum, 6);
+
+        return $firstPart . $delimiter . $secondPart . $delimiter . $thirdPart;
+    }
+    
+    function transformPNum($phoneNum, $delimiter){
+        if(empty($phoneNum)){
+            return false;
+        }
+
+        $filteredPhoneNum = getFilteredPNumber($phoneNum);
+
+        if(empty($filteredPhoneNum)){
+            return false;
+        }
+
+        if( strlen($filteredPhoneNum) != 10 ){
+            return false;
+        }
+
+        return reformatPNumber($filteredPhoneNum, $delimiter);
+    }
+
+    
+
+    $phoneStr = '(111) 222-3333';
+    $delimiter = '-';
+    echo transformPNum($phoneStr, $delimiter);
+  ?>
+  ```
+  
+## Question 5
+In production, we'll be caching to memcache. On staging, we'll be caching to APC. In development, we won't be caching at all. Design a library that allows you to store and retrieve data from the cache (only two methods required) and fits the requirements of all three environments. Consider making use of anything appropriate (e.g. traits, classes, interfaces, abstract classes, closures, etc) to solve this problem.
+
+Note: This is an architecture question. Please focus on the design of your library, rather than implementation or the specific caches I've described.
+
+<p>Answer:</p>
+```
+  <?php
+
+    interface iCaching {
+        public function setCache($data);
+        public function getCache();
+    }
+
+    /**
+     * Class exMemCache
+     */
+    class exMemCache implements iCaching {
+
+        private $exCache;
+
+        public function __construct() {
+            // create instance for Memcached
+            $this->exCache = new Memcached();
+        }
+
+        public function setCache($data) {
+            // do something to store into exMemCache
+
+        }
+
+        public function getCache() {
+            // do something to retrieve from exMemCache
+
+        }
+    }
+
+    /**
+     * Class exAPCCache
+     */
+    class exAPCCache implements iCaching {
+        public function __construct() {
+
+        }
+
+        public function setCache($data) {
+            // do something to store into APCCache
+
+        }
+
+        public function getCache() {
+            // do something to retrieve from APCCache
+
+        }
+    }
+
+    /**
+     * Class exNoneCache
+     */
+    class exNoneCache implements iCaching {
+
+        private $exCache;
+
+        public function __construct() {
+
+        }
+
+        public function setCache($data) {
+            return true;
+        }
+
+        public function getCache() {
+            return true;
+        }
+    }
+
+    /**
+     * Class exCache
+     */
+    class exCache {
+
+        private $cache;
+
+        public function __construct($env) {
+            if ($env == 'PRODUCT') {
+                $this->cache = new exMemCache();
+            } else if ($env == 'STAGING') {
+                $this->cache = new exAPCCache();
+            } else {
+                $this->cache = new exNoneCache();
+            }
+
+        }
+
+        public function setCache($data) {
+            $this->cache->setCache($data);
+        }
+
+        public function getCache() {
+            return $this->cache->getCache();
+        }
+    }
+
+    /**
+     * Example
+     */
+    $cache = new exCache('PRODUCT');
+    $cache->setCache($data);
+    $data = $cache->getCache();
+  ```
   
