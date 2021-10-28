@@ -255,8 +255,8 @@ Note: This is an architecture question. Please focus on the design of your libra
 }
   ```
   
-  <p>Answer:</p>
-  ```
+  Answer:
+  ````
   <?php
   function fizzBuzz($start = 1, $stop = 100)
   {
@@ -288,4 +288,4 @@ Note: This is an architecture question. Please focus on the design of your libra
 	return $string;
   }
   ?>
-  ```
+  ````
