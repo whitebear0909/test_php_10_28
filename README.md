@@ -218,5 +218,72 @@ Note: This is an architecture question. Please focus on the design of your libra
     $cache = new exCache('PRODUCT');
     $cache->setCache($data);
     $data = $cache->getCache();
+  ?>
   ````
   
+##  Question 6
+  Write a complete set of unit tests for the following code:
+  ```
+  function fizzBuzz($start = 1, $stop = 100)
+{
+	$string = '';
+	
+	if($stop < $start || $start < 0 || $stop < 0) {
+		throw new InvalidArgumentException;
+	}
+	
+	for($i = $start; $i <= $stop; $i++) {
+		if($i % 3 == 0 && $i % 5 == 0) {
+			$string .= 'FizzBuzz';
+			continue;
+		}
+		
+		if($i % 3 == 0) {
+			$string .= 'Fizz';
+			continue;
+		}
+		
+		if ($i % 5 == 0) {
+			$string .= 'Buzz';
+			continue;
+		}
+		
+		$string .= $i;
+	}
+	
+	return $string;
+}
+  ```
+  
+  <p>Answer:</p>
+  ````
+  function fizzBuzz($start = 1, $stop = 100)
+{
+	$string = '';
+	
+	if($stop < $start || $start < 0 || $stop < 0) {
+		throw new InvalidArgumentException;
+	}
+	
+	for($i = $start; $i <= $stop; $i++) {
+		if($i % 3 == 0 && $i % 5 == 0) {
+			$string .= 'FizzBuzz';
+			continue;
+		}
+		
+		if($i % 3 == 0) {
+			$string .= 'Fizz';
+			continue;
+		}
+		
+		if ($i % 5 == 0) {
+			$string .= 'Buzz';
+			continue;
+		}
+		
+		$string .= $i;
+	}
+	
+	return $string;
+}
+  ````
