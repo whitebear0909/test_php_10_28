@@ -366,7 +366,7 @@ class Document {
     }
 
     public static function getAllDocuments() {
-@@ -30,20 +35,18 @@ public static function getAllDocuments() {
+    }
 }
 
 class User {
