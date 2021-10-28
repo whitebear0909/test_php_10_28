@@ -229,26 +229,26 @@ Note: This is an architecture question. Please focus on the design of your libra
 	$string = '';
 	
 	if($stop < $start || $start < 0 || $stop < 0) {
-		throw new InvalidArgumentException;
+	    throw new InvalidArgumentException;
 	}
 	
 	for($i = $start; $i <= $stop; $i++) {
-		if($i % 3 == 0 && $i % 5 == 0) {
-			$string .= 'FizzBuzz';
-			continue;
-		}
+	   if($i % 3 == 0 && $i % 5 == 0) {
+		$string .= 'FizzBuzz';
+		continue;
+	   }
 		
-		if($i % 3 == 0) {
-			$string .= 'Fizz';
-			continue;
-		}
-		
-		if ($i % 5 == 0) {
-			$string .= 'Buzz';
-			continue;
-		}
-		
-		$string .= $i;
+	   if($i % 3 == 0) {
+		$string .= 'Fizz';
+		continue;
+	   }
+
+	   if ($i % 5 == 0) {
+		$string .= 'Buzz';
+		continue;
+	   }
+
+	   $string .= $i;
 	}
 	
 	return $string;
