@@ -271,3 +271,14 @@ Note: This is an architecture question. Please focus on the design of your libra
 	  }
   ?>
   ````
+## Question 7
+I've developed a class called Select to represent the SELECT statements I'd normally write for a database. I want to be able to use the Select objects as queries and automatically cast them to strings, but when I use them in PDOStatement::execute() I get the following error: Catchable fatal error: Object of class Select could not be converted to string. What should I change in my Select class so that this error goes away?
+
+Answer:
+<p>we have to use fetchAll to get the result from a query</p>
+```
+<?php
+$results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+?>
+```
+
