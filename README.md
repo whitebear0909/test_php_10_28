@@ -281,4 +281,57 @@ we have to use fetchAll to get the result from a query.
 $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 ```
+## Question 8
+Refactor the following old legacy classes. Don't go too deep, estimate up to 15 minutes of work. The code shouldn't be ideal, rather adequate for the first step of the refactoring. Feel free to leave comments in places which can be improved in the future if you see a possibility of that.
+
+```
+<?php
+
+class Document {
+
+    public $user;
+
+    public $name;
+
+    public function init($name, User $user) {
+        assert(strlen($name) > 5);
+        $this->user = $user;
+        $this->name = $name;
+    }
+
+    public function getTitle() {
+        $db = Database::getInstance();
+        $row = $db->query('SELECT * FROM document WHERE name = "' . $this->name . '" LIMIT 1');
+        return $row[3]; // third column in a row
+    }
+
+    public static function getAllDocuments() {
+        // to be implemented later
+    }
+}
+
+class User {
+
+    public function makeNewDocument($name) {
+        if(!strpos(strtolower($name), 'senior')) {
+            throw new Exception('The name should contain "senior"');
+        }
+
+        $doc = new Document();
+        $doc->init($name, $this);
+        return $doc;
+    }
+
+    public function getMyDocuments() {
+        $list = array();
+        foreach (Document::getAllDocuments() as $doc) {
+            if ($doc->user == $this)
+                $list[] = $doc;
+        }
+        return $list;
+    }
+}
+```
+
+Answer:
 
