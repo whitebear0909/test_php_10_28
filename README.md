@@ -258,34 +258,16 @@ Note: This is an architecture question. Please focus on the design of your libra
   Answer:
   ````
   <?php
-  function fizzBuzz($start = 1, $stop = 100)
-  {
-	$string = '';
-	
-	if($stop < $start || $start < 0 || $stop < 0) {
-		throw new InvalidArgumentException;
-	}
-	
-	for($i = $start; $i <= $stop; $i++) {
-		if($i % 3 == 0 && $i % 5 == 0) {
-			$string .= 'FizzBuzz';
-			continue;
-		}
-		
-		if($i % 3 == 0) {
-			$string .= 'Fizz';
-			continue;
-		}
-		
-		if ($i % 5 == 0) {
-			$string .= 'Buzz';
-			continue;
-		}
-		
-		$string .= $i;
-	}
-	
-	return $string;
-  }
+	  require './fizzBuzz.php';
+	  class Test extends \PHPUnit_Framework_TestCase
+	  {
+	    public function testFizzBuzz()
+	    {
+		$this->assertEquals('Fizz', fizzBuzz(3, 3), 'Multiples of 3 should return Fizz');
+		$this->assertEquals('Buzz', fizzBuzz(5, 5), 'Multiples of 5 should return Buzz');
+		$this->assertEquals('FizzBuzz', fizzBuzz(15, 15), 'Multiples of 3 and 5 should return FizzBuzz');
+		$this->assertEquals('2', fizzBuzz(2, 2), 'Non-multiples of 3 or 5 should return input');
+	    }
+	  }
   ?>
   ````
