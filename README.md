@@ -12,8 +12,8 @@
   +----+-------------+-------+------+---------------+------+---------+------+-------+-------------+
   Offer a theory as to why the performance is slow.
 
-Answer:
-  There is no key.
+<p>Answer:</p>
+ <p>There is no key.</p>
   
 ## Question 2
 You're given a sorted index array that contains no keys. The array contains only integers, and your task is to identify whether or not the integer you're looking for is in the array. Come up with a function that searches for the integer and returns true or false based on whether the integer is present. Describe how you arrived at your solution.
