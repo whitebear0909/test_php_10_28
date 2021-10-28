@@ -33,8 +33,8 @@ Answer:
   ?>
  ```
 ## Question 3
-     <p>During a large data migration, you get the following error: Fatal error: Allowed memory size of 134217728 bytes exhausted (tried to allocate 54 bytes). </p>
-     <p>You've traced the problem to the following snippet of code:</p>
+     During a large data migration, you get the following error: Fatal error: Allowed memory size of 134217728 bytes exhausted (tried to allocate 54 bytes). </p>
+     You've traced the problem to the following snippet of code:
     ```
     $stmt = $pdo->prepare('SELECT * FROM largeTable');
     $stmt->execute();
@@ -51,7 +51,6 @@ Answer:
   $stmt = $pdo->prepare('SELECT * FROM largeTable');
   $stmt->execute();
   $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
-  ....
   ```
 ## Question 4
   Write a function that takes a phone number in any form and formats it using a delimiter supplied by the developer. The delimiter is optional; if one is not supplied, use a dash (-). Your function should accept a phone number in any format (e.g. 123-456-7890, (123) 456-7890, 1234567890, etc) and format it according to the 3-3-4 US block standard, using the delimiter specified. Assume foreign phone numbers and country codes are out of scope.
