@@ -1,8 +1,9 @@
 # test_php_10_28
 ## Question 1
   A client has called and said that they're noticing performance problems on their database when searching for a user by email address. You've checked, and the following query is running:
-
+  ```
   SELECT * FROM users WHERE email = 'user@test.com';
+  ```
   You run the EXPLAIN command and get the following results:
   ```
   +----+-------------+-------+------+---------------+------+---------+------+-------+-------------+
@@ -32,8 +33,8 @@ Answer:
   ?>
  ```
 ## Question 3
-    During a large data migration, you get the following error: Fatal error: Allowed memory size of 134217728 bytes exhausted (tried to allocate 54 bytes). You've traced the
-     problem to the following snippet of code:
+     <p>During a large data migration, you get the following error: Fatal error: Allowed memory size of 134217728 bytes exhausted (tried to allocate 54 bytes). </p>
+     <p>You've traced the problem to the following snippet of code:</p>
     ```
     $stmt = $pdo->prepare('SELECT * FROM largeTable');
     $stmt->execute();
