@@ -225,7 +225,7 @@ Note: This is an architecture question. Please focus on the design of your libra
   Write a complete set of unit tests for the following code:
   ```
   function fizzBuzz($start = 1, $stop = 100)
-{
+  {
 	$string = '';
 	
 	if($stop < $start || $start < 0 || $stop < 0) {
@@ -256,9 +256,10 @@ Note: This is an architecture question. Please focus on the design of your libra
   ```
   
   <p>Answer:</p>
-  ````
+  ```
+  <?php
   function fizzBuzz($start = 1, $stop = 100)
-{
+  {
 	$string = '';
 	
 	if($stop < $start || $start < 0 || $stop < 0) {
@@ -285,5 +286,6 @@ Note: This is an architecture question. Please focus on the design of your libra
 	}
 	
 	return $string;
-}
-  ````
+  }
+  ?>
+  ```
