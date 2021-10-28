@@ -114,7 +114,7 @@ In production, we'll be caching to memcache. On staging, we'll be caching to APC
 Note: This is an architecture question. Please focus on the design of your library, rather than implementation or the specific caches I've described.
 
 <p>Answer:</p>
-```
+```php
   <?php
 
     interface iCaching {
