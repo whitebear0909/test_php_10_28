@@ -5,12 +5,12 @@
   SELECT * FROM users WHERE email = 'user@test.com';
   You run the EXPLAIN command and get the following results:
 
-  +----+-------------+-------+------+---------------+------+---------+------+-------+-------------+
-  | id | select_type | table | type | possible_keys | key  | key_len | ref  | rows  | Extra       |
-  +----+-------------+-------+------+---------------+------+---------+------+-------+-------------+
-  |  1 | SIMPLE      | users | ALL  | NULL          | NULL | NULL    | NULL | 10320 | Using where |
-  +----+-------------+-------+------+---------------+------+---------+------+-------+-------------+
-  Offer a theory as to why the performance is slow.
+  <p>+----+-------------+-------+------+---------------+------+---------+------+-------+-------------+</p>
+  <p>| id | select_type | table | type | possible_keys | key  | key_len | ref  | rows  | Extra       |</p>
+  <p>+----+-------------+-------+------+---------------+------+---------+------+-------+-------------+</p>
+  <p>|  1 | SIMPLE      | users | ALL  | NULL          | NULL | NULL    | NULL | 10320 | Using where |</p>
+  <p>+----+-------------+-------+------+---------------+------+---------+------+-------+-------------+</p>
+  <p>Offer a theory as to why the performance is slow.</p>
 
 <p>Answer:</p>
  <p>There is no key.</p>
